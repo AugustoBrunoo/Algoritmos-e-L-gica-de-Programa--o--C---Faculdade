@@ -37,8 +37,5 @@ int main() {
     } else {
         printf("Obsidade grave\n");
     }
-
-
-
     return 0;
 }

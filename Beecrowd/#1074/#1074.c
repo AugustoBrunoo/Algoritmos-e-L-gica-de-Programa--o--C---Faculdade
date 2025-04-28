@@ -36,9 +36,6 @@ int main() {
             strcpy(valor2, "NEGATIVE");
         }
 
-        printf("Número (%d): %s  %s\n", numero, valor1, valor2);
-
-
     } else {
         strcpy(valor1, "ODD");
 
@@ -47,10 +44,9 @@ int main() {
         } else {
             strcpy(valor2, "NEGATIVE");
         }
-
-        printf("Número (%d): %s  %s\n", numero, valor1, valor2);
-
     }
 
+    printf("%s  %s\n", valor1, valor2);
+    
     return 0;
 }

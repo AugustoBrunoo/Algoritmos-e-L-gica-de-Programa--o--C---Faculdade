@@ -12,25 +12,9 @@
 int main() {
     int A, B, C, D;
 
-    printf("Digite os valores de A, B, C, D em ordem: ");
     scanf("%d %d %d %d", &A, &B, &C, &D);
 
-    if (A % 2 != 0) {
-        printf("Valores nao aceitos\n");
-        return 0;
-    }
-
-    if (C < 0 || D < 0){
-        printf("Valores nao aceitos\n");
-        return 0;
-    }
-
-    if (C + D < A + B) {
-        printf("Valores nao aceitos\n");
-        return 0;
-    }
-
-    if (B < C || D < A) {
+    if ((B <= C) || (D <= A) || (C + D <= A + B) || (C <= 0) || (D <= 0) || (A % 2 != 0)) {
         printf("Valores nao aceitos\n");
         return 0;
     }

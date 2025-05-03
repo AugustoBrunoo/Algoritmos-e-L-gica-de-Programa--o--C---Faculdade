@@ -1,32 +1,14 @@
 #include <stdio.h>
 
-/*
-    Leia um valor de ponto flutuante com duas casas decimais. Este valor representa um valor monetário. 
-    A seguir, calcule o menor número de notas e moedas possíveis no qual o valor pode ser decomposto. 
-    As notas consideradas são de 100, 50, 20, 10, 5, 2. 
-    As moedas possíveis são de 1, 0.50, 0.25, 0.10, 0.05 e 0.01. 
-    A seguir mostre a relação de notas necessárias.
-
-    A Entrada: 
-    O arquivo de entrada contém um valor de ponto flutuante N (0 ≤ N ≤ 1000000.00).
-
-    Saída: 
-    Imprima a quantidade mínima de notas e moedas necessárias para trocar o valor inicial, conforme exemplo fornecido.
-*/
-
-int main() {
-    float valor;
+int main () {
+    double valor;
     int notasDe100, notasDe50, notasDe20, notasDe10, notasDe5, notasDe2, valorEmInt, save;
-    int moeda1, moeda050, moeda025, moeda010, moeda005, moeda001;
+    int moeda1, moeda050, moeda025, moeda010, moeda005, moeda001, conversor;
 
-
-    printf("Digite o valor (em R$): ");
-    scanf("%f", &valor);
+    scanf("%lf", &valor);
 
     valorEmInt = valor;
     save = valorEmInt;
-
-    printf("%d\n", valorEmInt);
 
     notasDe100 = valorEmInt / 100;
     valorEmInt = valorEmInt % 100;
@@ -45,26 +27,43 @@ int main() {
 
     notasDe2 = valorEmInt / 2;
     valorEmInt = valorEmInt % 2;
-
-    printf("%d nota(s) de R$ 100.00 \n", notasDe100);
+    printf("NOTAS:\n");
+    printf("%d nota(s) de R$ 100.00\n", notasDe100);
     printf("%d nota(s) de R$ 50.00\n", notasDe50);
     printf("%d nota(s) de R$ 20.00\n", notasDe20);
     printf("%d nota(s) de R$ 10.00\n", notasDe10);
     printf("%d nota(s) de R$ 5.00\n", notasDe5);
     printf("%d nota(s) de R$ 2.00\n", notasDe2);
 
-    printf("%d\n", valorEmInt);
-
-    // Moedas: 
-
-    // restante:
     valor = (valor - save) + valorEmInt;
-    printf("%f", valor);
 
-    // printf("Moedas: ");
-    moeda1 = valor / 1;
-    valorEmInt = valor % 1;
+    printf("MOEDAS:\n");
 
-    // printf("%f", valorEmInt);
+    conversor = valor * 100;
+
+    moeda1 = conversor / 100;
+
+    printf("%d moeda(s) de R$ 1.00\n", moeda1);
+
+    moeda050 = (conversor % 100) / 50;
+
+    printf("%d moeda(s) de R$ 0.50\n", moeda050);
+
+    moeda025 = (conversor - (moeda1 * 100 + moeda050 * 50))/ 25;
+
+    printf("%d moeda(s) de R$ 0.25\n", moeda025);
+
+    moeda010 = (conversor - (moeda1 * 100 + moeda050 * 50 + moeda025 * 25))/ 10;
+
+    printf("%d moeda(s) de R$ 0.10\n", moeda010);
+
+    moeda005 = (conversor - (moeda1 * 100 + moeda050 * 50 + moeda025 * 25 + moeda010 * 10))/ 5;
+
+    printf("%d moeda(s) de R$ 0.05\n", moeda005);
+
+    moeda001 = (conversor - (moeda1 * 100 + moeda050 * 50 + moeda025 * 25 + moeda010 * 10 + moeda005 * 5));
+
+    printf("%d moeda(s) de R$ 0.01\n", moeda001);
+
     return 0;
 }

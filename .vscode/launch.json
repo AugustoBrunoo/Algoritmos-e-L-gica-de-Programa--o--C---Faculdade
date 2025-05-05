@@ -9,7 +9,7 @@
             "name": "Debug C",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Aula 4/Aula 4.1/Treinando/Ex_1.c",
+            "program": "${workspaceFolder}/Beecrowd/#1040/#1040.c",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

@@ -43,6 +43,7 @@ int main() {
             b = num3;
             c = num1;
         }
+        
     } else {
 
         a = num3;

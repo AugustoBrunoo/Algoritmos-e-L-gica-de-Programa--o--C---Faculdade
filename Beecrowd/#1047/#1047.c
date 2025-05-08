@@ -12,29 +12,21 @@
     Mostre a seguinte mensagem: “O JOGO DUROU XXX HORA(S) E YYY MINUTO(S)” .
 */
 
-int main()
-{
+int main() {
     int horaInicial, horaFinal, minutoInicial, minutoFinal;
     int totalMinInicial, totalMinFinal, duracaoTotalMin;
     int duracaoHora, duracaoMinuto;
 
-    printf("Digite a hora inicial do jogo: ");
-    scanf("%d", &horaInicial);
-    printf("Digite o minuto inicial do jogo: ");
-    scanf("%d", &minutoInicial);
-    printf("\n");
-    printf("Digite a hora final do jogo: ");
-    scanf("%d", &horaFinal);
-    printf("Digite o minuto final do jogo: ");
-    scanf("%d", &minutoFinal);
-    printf("\n");
+    scanf("%d %d %d %d", &horaInicial, &minutoInicial, &horaFinal, &minutoFinal);
 
-    totalMinInicial = (horaInicial * 60) + minutoInicial;
-    totalMinFinal = (horaFinal * 60) + minutoFinal;
+    horaInicial = horaInicial * 60;
+    horaFinal = horaFinal * 60;
 
-    // se o teempo final for menor ou igual ao inicial
+    totalMinInicial = horaInicial + minutoInicial;
+    totalMinFinal = horaFinal + minutoFinal;
+
     if (totalMinFinal <= totalMinInicial) {
-        totalMinFinal += 24 * 60; //  adiciona 24h em 60 min
+        totalMinFinal += 24 * 60;
     }
 
     duracaoTotalMin = totalMinFinal - totalMinInicial;

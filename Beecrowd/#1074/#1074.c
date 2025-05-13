@@ -11,42 +11,42 @@
     embora a descrição correta seja (EVEN NULL), pois por definição zero é par, seu programa deverá imprimir 
     apenas NULL.
 
+    Entrada: 
+    A primeira linha da entrada contém um valor inteiro N(N < 10000) que indica o número de casos de teste. 
+    Cada caso de teste a seguir é um valor inteiro X (-107 < X <107).
 
+    Saída: 
+    Para cada caso, imprima uma mensagem correspondente, de acordo com o exemplo abaixo. 
+    Todas as letras deverão ser maiúsculas e sempre deverá haver um espaço entre duas palavras impressas 
+    na mesma linha.
+
+    ODD - IMPAR
+    EVEN - PAR
+    POSITVE - POSITIVO
+    NULL - NULO = ZERO
+    NEGATIVE - NEGATIVO 
 */
 
 int main() {
-    int numero;
+    int quantidade, valor;
 
-    printf("Digite um valor: ");
-    scanf("%d", &numero);
+    scanf("%d", &quantidade);
 
-    char valor1[10];
-    char valor2[10];
+    for (int i = 1; i <= quantidade; i++) {
+        scanf("%d", &valor);
 
-    if (numero == 0) {
-        strcpy(valor1, "NULL"); // Armazena a string na variavel valor1
-        printf("Número %d: %s\n", numero, valor1);
-
-    } else if (numero % 2 == 0) {
-        strcpy(valor1, "EVEN");
-
-        if (numero > 0) {
-            strcpy(valor2, "POSITIVE");
+        if (valor > 0 && valor % 2 == 0) {
+            printf("EVEN POSITIVE\n");
+        } else if (valor > 0 && valor % 2 != 0) {
+            printf("ODD POSITIVE\n");
+        } else if (valor < 0 && valor % 2 == 0) {
+            printf("EVEN NEGATIVE\n");
+        } else if (valor < 0 && valor % 2 != 0) {
+            printf("ODD NEGATIVE\n");
         } else {
-            strcpy(valor2, "NEGATIVE");
-        }
-
-    } else {
-        strcpy(valor1, "ODD");
-
-        if (numero > 0) {
-            strcpy(valor2, "POSITIVE");
-        } else {
-            strcpy(valor2, "NEGATIVE");
+            printf("NULL\n");
         }
     }
-
-    printf("%s  %s\n", valor1, valor2);
     
     return 0;
 }

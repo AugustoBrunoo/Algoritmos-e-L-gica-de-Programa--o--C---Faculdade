@@ -1,32 +1,22 @@
 #include <stdio.h>
-
 /*
-    Leia 5 valores Inteiros. A seguir mostre quantos valores digitados foram pares, 
-    quantos valores digitados foram ímpares, quantos valores digitados foram positivos e 
-    quantos valores digitados foram negativos.
+    Leia um valor inteiro X (1 <= X <= 1000). 
+    Em seguida mostre os ímpares de 1 até X, um valor por linha, 
+    inclusive o X, se for o caso.
 */
 
 int main() {
-    int num, contadorPares = 0, contadorImpares = 0, contadorPositivo = 0, contadorNegativo = 0;
-    for (int i = 1; i <= 5; i++) {
-        scanf("%d", &num);
+    int num;
 
-        if (num > 0) {
-            contadorPositivo++;
-        } else if (num < 0 ){
-            contadorNegativo++;
-        } 
+    scanf("%d", &num);
 
-        if (num % 2 == 0) {
-            contadorPares++;
-        } else {
-            contadorImpares++;
-        }
+    if (num < 1 || num > 1000) {
+        return 0;
     }
 
-    printf("%d valor(es) par(es)\n", contadorPares);
-    printf("%d valor(es) impar(es)\n", contadorImpares);
-    printf("%d valor(es) positivo(s)\n", contadorPositivo);
-    printf("%d valor(es) negativo(s)\n", contadorNegativo);
+    for (int i = 1; i <= num; i += 2) {
+        printf("%d\n", i);
+    }
+    
     return 0;
 }

@@ -1,36 +1,36 @@
 #include <stdio.h>
-#include <string.h>
-
-// Leia uma linha de texto, construa uma string a partir desta linha de texto 
-// removendo todos os espaços em branco supérfluos, e imprima a string resultante.
+#include <stdlib.h>
 
 int main() {
-    char frase[100];
+    int casos;
 
-    fgets(frase, sizeof(frase), stdin);
+    scanf("%d", &casos);
 
-    int tamanho = strlen(frase);
-    char fraseFormatada[tamanho];
+    for (int i = 0; i < casos; i++) {
+        int num;
 
-    if (frase[tamanho - 1] == '\n') {
-        frase[tamanho - 1] = '\0';
-        tamanho--;
-    }
+        scanf("%d", &num);
 
-    int j = 0;
+        int flagNP = 0;
 
-    for (int i = 0; i < tamanho; i++) {
-        if (frase[i] == ' ') {
-            continue;
+        if (num < 2) {
+            flagNP = 1; // 0 e 1 não sao primos
         } else {
-            fraseFormatada[j] = frase[i];
-            j++;
+            for (int j = 2; j <= num / 2; j++) {
+                if (num % j == 0) {
+                    flagNP = 1;
+                    break;
+                }
+            }
         }
-    }
 
-    fraseFormatada[j] = '\0';
-    
-    printf("%s\n", fraseFormatada);
+        if (!flagNP) {
+            printf("%d eh primo\n", num);
+        } else {
+            printf("%d nao eh primo\n", num);
+        }
+        
+    }
     
     return 0;
 }

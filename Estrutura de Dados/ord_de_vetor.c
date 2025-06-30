@@ -127,12 +127,12 @@ void selectionSort(int *vetor, int tamanho) { // Procura o menor elemento em rel
             if (vetor[j] < vetor[menor]) {
                 menor = j;
             }
+        }
 
-            if (i != menor) { // Troca valores da posição atual com a "menor"
-                troca = vetor[i];
-                vetor[i] = vetor[menor];
-                vetor[menor] = troca;
-            }
+        if (i != menor) { // Troca valores da posição atual com a "menor"
+            troca = vetor[i];
+            vetor[i] = vetor[menor];
+            vetor[menor] = troca;
         }
     }
 }

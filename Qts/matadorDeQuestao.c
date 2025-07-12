@@ -1,36 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Transformando um numero "string" em número inteiro.
+
 int main() {
-    int casos;
+    printf("%d\n", '7' - '0');
 
-    scanf("%d", &casos);
+    // Transformando um numero string float em float
+    char num[] = "12.34";
 
-    for (int i = 0; i < casos; i++) {
-        int num;
+    float valorConvertido = atof(num);
 
-        scanf("%d", &num);
+    printf("%.2f\n", valorConvertido);
 
-        int flagNP = 0;
-
-        if (num < 2) {
-            flagNP = 1; // 0 e 1 não sao primos
-        } else {
-            for (int j = 2; j <= num / 2; j++) {
-                if (num % j == 0) {
-                    flagNP = 1;
-                    break;
-                }
-            }
-        }
-
-        if (!flagNP) {
-            printf("%d eh primo\n", num);
-        } else {
-            printf("%d nao eh primo\n", num);
-        }
-        
-    }
-    
     return 0;
 }
+
+
+

@@ -10,67 +10,73 @@
 
 */
 
+void verificarUpper(char *string, int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (islower(string[i])) {
+            string[i] = toupper(string[i]);
+        }
+    }
+    
+    // for (int i = 0; i < tamanho; i++) {
+    //     printf("%c", string[i]);
+    // }
+    // printf("\n");
+}
+
 void retirarN(char *string) {
     int tamanho = strlen(string);
-
-    if (tamanho > 0 && string[tamanho - 1] == '\n') {
+    
+    if (string[tamanho - 1] == '\n') {
         string[tamanho - 1] = '\0';
         tamanho--;
     }
+
+    verificarUpper(string, tamanho);
 }
 
-void transformarEmMinuscula(char *string) {
+int manipularString(char *string) {
     int tamanho = strlen(string);
 
+    char palavraInvertida[tamanho + 1];
+
+    /*Injetando os caracteres ao contrario*/
+    int j = tamanho - 1;
     for (int i = 0; i < tamanho; i++) {
-        if (isupper(string[i])) {
-            string[i] = tolower(string[i]);
+        palavraInvertida[i] = string[j];
+        j--;
+    }
+    palavraInvertida[tamanho] = '\0';
+
+    // printf("%s\n", palavraInvertida);
+
+    int contador = 0;
+    for (int k = 0; k < tamanho; k++) {
+        if (string[k] == palavraInvertida[k]) {
+            contador++;
         }
+    }
+    
+    if (contador == tamanho) {
+        return 1;
+    } else {
+        return 0;
     }
 }
 
-int main() {
-    char palavra[50];
 
+int main() {
+    char palavra[20];
     fgets(palavra, sizeof(palavra), stdin);
+
     retirarN(palavra);
 
-    transformarEmMinuscula(palavra);
+    int resultado = manipularString(palavra);
 
-    int tamanho = strlen(palavra);
-    char invertida[50];
-
-    int j = 0;
-    for (int i = tamanho - 1; i >= 0; i++) {
-        invertida[j] = palavra[i];
-        j++;
-    }
-
-    invertida[j] = '\0';
-
-    if (strcmp(palavra, invertida) == 0) {
-        printf("é um palíndromo\n");
+    if (resultado == 1) {
+        printf("É um palíndromo!\n");
     } else {
-        printf("não é um palíndromo\n");
+        printf("Não é um palíndromo!\n");
     }
-
-    /* 
-    int sequenciaIguais = 0;
-
-    for (int i = 0; i < tamanho; i++) {
-        if (invertida[i] == palavra[i]) {
-            sequenciaIguais++;
-        }
-    }
-
     
-    if (sequenciaIguais == tamanho) {
-        printf("É um palíndromo\n");
-    } else {
-        printf("Não é um palíndromo\n");
-    }
-    */
-
-
     return 0;
 }

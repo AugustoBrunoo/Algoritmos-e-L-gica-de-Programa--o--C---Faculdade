@@ -9,7 +9,7 @@ void retirarN (char string[], int tamanho) {
 }
 
 void retirarNEnxuto(char string[], int tamanho) {
-    string[strcspn(string, "\n")] = "\0";
+    string[strcspn(string, "\n")] = '\0';
 }
 
 int main() {

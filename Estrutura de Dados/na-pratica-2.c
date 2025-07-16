@@ -18,13 +18,14 @@ void ordBubbleSort(int *vetor, int tamanho) {
 
         }
         
-        final--;
+        final--; // Ordena cada valor, e por isso a gente reduz o final, pois
+        // não precisa refazer a verificacao de quem ja foi ordenado
         
     } while (trocou);
     
 }
 
-int buscaBinaria(int *vetor, int tamanho, int valorABuscar) {
+int buscaBinaria(int *vetor, int tamanho, int valorABuscar) { // Vetor tem que estar ordenado
     int inicio = 0, fim = tamanho - 1, meio , encontrado = -1;
 
     do {
